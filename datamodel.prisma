@@ -1,0 +1,56 @@
+type User {
+  id: ID! @id
+  name: String! @unique
+  email: String! @unique
+  luvstores: [Store!]! @relation(name: "StoreFollowRelation")
+  likes: [Like!]!
+  reviews: [Review!]!
+  chats: [Chat!]!
+  loginSecret: String!
+}
+
+type Store {
+  id: ID! @id
+  name: String!
+  email: String!
+  customers: [User!]! @relation(name: "StoreFollowRelation")
+  likes: [Like!]!
+  reviews: [Review!]!
+  storeNotices: [StoreNotice!]!
+  chats: [Chat!]!
+  loginSecret: String!
+}
+
+type Like {
+  id: ID! @id
+  user: User!
+  store: Store!
+}
+
+type Review {
+  id: ID! @id
+  text: String!
+  user: User!
+  store: Store!
+}
+
+type StoreNotice {
+  id: ID! @id
+  text: String!
+  author: Store!
+}
+
+type Chat {
+  id: ID! @id
+  member: [User!]!
+  othermember: [Store!]!
+  messages: [Message!]!
+}
+
+type Message {
+  id: ID! @id
+  text: String!
+  from: User! @relation(name: "From")
+  to: User! @relation(name: "To")
+  chat: Chat!
+}

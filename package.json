@@ -1,0 +1,27 @@
+{
+  "name": "luvistserver-01",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "prisma deploy",
+    "dev": "nodemon --exec babel-node src/server.js",
+    "generate": "prisma generate",
+    "prisma": "yarn run deploy && yarn run generate"
+  },
+  "repository": "https://github.com/GROUND83/luvistserver-01.git",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.5.4",
+    "@babel/node": "^7.5.0",
+    "@babel/preset-env": "^7.5.4",
+    "dotenv": "^8.0.0",
+    "graphql-tools": "^4.0.5",
+    "graphql-yoga": "^1.18.0",
+    "merge-graphql-schemas": "^1.5.8",
+    "morgan": "^1.9.1",
+    "prisma-client-lib": "^1.34.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}

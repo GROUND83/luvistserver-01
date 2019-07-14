@@ -1,0 +1,56 @@
+type User {
+  id: ID! 
+  name: String! 
+  email: String! 
+  luvstores: [Store!]! 
+  likes: [Like!]!
+  reviews: [Review!]!
+  chats: [Chat!]!
+  loginSecret: String!
+}
+
+type Store {
+  id: ID! 
+  name: String!
+  email: String!
+  customers: [User!]! 
+  likes: [Like!]!
+  reviews: [Review!]!
+  storeNotices: [StoreNotice!]!
+  chats: [Chat!]!
+  loginSecret: String!
+}
+
+type Like {
+  id: ID! 
+  user: User!
+  store: Store!
+}
+
+type Review {
+  id: ID! 
+  text: String!
+  user: User!
+  store: Store!
+}
+
+type StoreNotice {
+  id: ID! 
+  text: String!
+  author: Store!
+}
+
+type Chat {
+  id: ID! 
+  member: [User!]!
+  othermember: [Store!]!
+  messages: [Message!]!
+}
+
+type Message {
+  id: ID! 
+  text: String!
+  from: User! 
+  to: User! 
+  chat: Chat!
+}
